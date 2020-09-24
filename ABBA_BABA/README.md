@@ -8,7 +8,7 @@ Should the gene tree match the species tree, we would expect the derived at H1 a
 
 The test uses the D-statistic to describe these proportions. Should the proportion of ABBA and BABA sites be roughly equal, the D-statistic will be around 0. However, should there be more ABBA sites (gene flow between H2 and H3), it will be positive, and if there are more BABA sites (gene flow between H1 and H3), it will be negative.
 
-![abba-baba example](https://media.nature.com/lw926/nature-assets/nature/journal/v487/n7405/images/nature11041-f3.2.jpg)
+![abba-baba example](https://www.researchgate.net/profile/Stephen_Richards7/publication/227857346/figure/fig3/AS:280362786803724@1443855105524/Four-taxon-ABBA-BABA-test-of-introgression-a-ABBA-and-BABA-nucleotide-sites-employed-in.png)
 [(Heliconius Genome Consortium 2012)](https://doi.org/10.1038/nature11041)
 
 ## [doAbbababa2 in ANGSD](http://www.popgen.dk/angsd/index.php/Abbababa2)
