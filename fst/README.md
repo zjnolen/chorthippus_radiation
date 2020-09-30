@@ -1,0 +1,4 @@
+Fst
+==================
+
+We calculate Fst using three scripts, [calc\_glob\_fst.sh](calc_glob_fst.sh), [calc\_gene\_fst.sh](calc_gene_fst.sh), and [calc\_site\_fst.sh](calc_site_fst.sh) to calculate global, per gene, and per site Fsts respectively. To calculate site and gene Fst, global Fst must first be calculated. The per gene Fst calculations require the script [loopFst.pl](loopFst.pl) which is specifically written for our grasshopper system. Outputs for these are available upon request, only per gene Fsts have been pushed to this repository. These analyses were performed for relevant population pairs, and summarized into the per gene Fst distribution plot in the paper (Figure 4B).

@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH -J calc_gene_fst
+#SBATCH --output=calc_gene_fst.out
+#SBATCH --partition=mpp2_batch
+#SBATCH --clusters=mpp2
+#SBATCH --cpus-per-task=1
+#SBATCH -t 2:00:00
+
+for pair in "cbig_b_cbru_b" "cbig_b_cbru_s" "cbig_e_cbru_b" "cbig_e_cbru_s" "cmol_b_cbru_b" "cmol_b_cbru_s" "cmol_e_cbru_b" "cmol_e_cbru_s" "cmol_e_cbig_e" "cmol_b_cbig_b" "cmol_e_cbig_b" "cmol_b_cbig_e"
+
+	do
+
+		first=$(expr substr ${pair} 1 6)
+		second=$(expr substr ${pair} 8 13)
+
+		echo "Calculating per gene Fst from site Fst file for the following taxa: ${first} and ${second}"
+
+		perl loopFst.pl grasshopperRef.positions fst/site_${first}_${second}_p1_fold0.fst > fst/gene_${first}_${second}_p1_fold0.csv
+
+done

@@ -1,0 +1,13 @@
+file	unweighted_fst	weighted_fst
+glob_cbig_b_cbru_b_p1_fold0.fst.idx	0.027882	0.111327
+glob_cbig_b_cbru_s_p1_fold0.fst.idx	0.033106	0.130534
+glob_cbig_e_cbru_b_p1_fold0.fst.idx	0.030744	0.128571
+glob_cbig_e_cbru_s_p1_fold0.fst.idx	0.032051	0.147523
+glob_cmol_b_cbig_b_p1_fold0.fst.idx	0.029327	0.146402
+glob_cmol_b_cbig_e_p1_fold0.fst.idx	0.031977	0.156360
+glob_cmol_b_cbru_b_p1_fold0.fst.idx	0.030423	0.142035
+glob_cmol_b_cbru_s_p1_fold0.fst.idx	0.031761	0.162562
+glob_cmol_e_cbig_b_p1_fold0.fst.idx	0.030519	0.152102
+glob_cmol_e_cbig_e_p1_fold0.fst.idx	0.032466	0.161495
+glob_cmol_e_cbru_b_p1_fold0.fst.idx	0.031353	0.148849
+glob_cmol_e_cbru_s_p1_fold0.fst.idx	0.032548	0.168334
