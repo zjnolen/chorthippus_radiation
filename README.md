@@ -8,6 +8,12 @@ This repository contains scripts used for the analyses presented in our manuscri
 
 Scripts for different analyses are available in the folders above if viewing from the GitHub repository, with links below:
 
-[ABBA-BABA](ABBA_BABA)
+* [ABBA-BABA](ABBA_BABA)
 
-For questions relating to the files in this repository please contact Zachary J. Nolen or Ricardo J. Pereira.
+* [dadi](dadi)
+
+* [SFS](sfs)
+
+* [Fst](fst)
+
+For questions relating to the files in this repository please contact Zachary J. Nolen or Ricardo J. Pereira. Feel free to post questions in the issues section and we can update this repository in accordance with the needs of those using it.
