@@ -5,16 +5,10 @@ Site Frequency Spectra and Fst
     -   [2D Site Frequency Spectrum](#d-site-frequency-spectrum)
 -   [Building SFS](#building-sfs)
     -   [Dealing with linkage](#dealing-with-linkage)
-        -   [Sampling (Unlinked-SFS)](#sampling-unlinked-sfs)
-        -   [Bootstrapping (Linked-SFS)](#bootstrapping-linked-sfs)
+        -   [Bootstrapping](#bootstrapping)
     -   [Building 2D SFS](#building-2d-sfs)
-        -   [Unlinked-SFS](#unlinked-sfs)
-            -   [Filtering out Fixed Sites](#filtering-out-fixed-sites)
-            -   [Building SFS using SNP calling](#building-sfs-using-snp-calling)
-        -   [Linked-SFS](#linked-sfs)
-            -   [Creating SAF files](#creating-saf-files)
-            -   [Building 2D SFS from SAF files](#building-2d-sfs-from-saf-files)
--   [Fst](#fst)
+        -   [Creating SAF files](#creating-saf-files)
+        -   [Building 2D SFS from SAF files](#building-2d-sfs-from-saf-files)
 -   [References](#references)
 
 Site Frequency Spectra
@@ -59,8 +53,6 @@ For example, say you have five genes in total, and thus a five gene SFS. Your da
 
 Building 2D SFS
 ---------------
-
-### Linked-SFS
 
 Building a 2D SFS with ANGSD using genotype likelihoods is relatively easy, but we must take into account that we will want to bootstrap this SFS later on (see [Bootstrapping section in the ∂a∂i readme](../dadi)). The best way to do this is to build SFS for individual genes that can be later sampled to build bootstraps.
 
