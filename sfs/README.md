@@ -1,6 +1,3 @@
-Site Frequency Spectra and Fst
-================
-
 -   [Site Frequency Spectra](#site-frequency-spectra)
     -   [2D Site Frequency Spectrum](#d-site-frequency-spectrum)
 -   [Building SFS](#building-sfs)
