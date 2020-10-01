@@ -1,4 +1,4 @@
-Calculating per-gene Theta, Pi, and Tajima's D
+Calculating per gene Theta, Pi, and Tajima's D
 =========================================
 
 ### SAF Files
