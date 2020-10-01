@@ -18,4 +18,13 @@ Scripts for different analyses are available in the folders above if viewing fro
 
 * [Theta, Pi, and Tajima's D](theta_pi_tajimasD)
 
+* [NGSadmix](ngsadmix)
+
 For questions relating to the files in this repository please contact Zachary J. Nolen or Ricardo J. Pereira. Feel free to post questions in the issues section and we can update this repository in accordance with the needs of those using it.
+
+
+### Notes on ANGSD
+
+#### Bamlist
+
+#### General Options
