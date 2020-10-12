@@ -10,8 +10,10 @@ Scripts for different analyses are available in the folders above if viewing fro
 
 * [ABBA-BABA](ABBA_BABA)
 * [dadi](dadi)
+* [Dxy](dxy)
 * [Fst](fst)
 * [NGSadmix](ngsadmix)
+* [Phylogenetics](phylogenetics)
 * [SFS](sfs)
 * [Theta, Pi, and Tajima's D](theta_pi_tajimasD)
 
