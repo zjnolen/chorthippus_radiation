@@ -1,3 +1,6 @@
+Site Frequency Spectra
+======================
+
 -   [Site Frequency Spectra](#site-frequency-spectra)
     -   [2D Site Frequency Spectrum](#d-site-frequency-spectrum)
 -   [Building SFS](#building-sfs)
@@ -7,9 +10,6 @@
         -   [Creating SAF files](#creating-saf-files)
         -   [Building 2D SFS from SAF files](#building-2d-sfs-from-saf-files)
 -   [References](#references)
-
-Site Frequency Spectra
-======================
 
 A site frequency spectrum (SFS) is a summary statistic used to describe the distribution of allele frequencies in a sample. The distribution of these frequencies can be used to infer various demographic parameters for a population, and forms the main input for our demographic analyses. SFS can be made not only for a sample of one population, but for multiple, illustrating how allele frequencies are distributed between the populations. For this manuscript, we use two population SFS (2D SFS) to fit our demographic models.
 
@@ -63,27 +63,32 @@ SAF files are large files that contain information on the allele frequencies of 
 
 Due to the time and memory use required to build a SAF file, these are best submitted as batch jobs to a high powered cluster. Below is an example script ([crub\_p1\_fold0.sh](slurm_scripts/crub_p1_fold.sh)) for submission to LRZ.
 
-    #!/bin/bash
-    #SBATCH -J crub_p1_fold0
-    #SBATCH --output=slurm_scripts/crub_p1_fold0.out
-    #SBATCH --partition=mpp2_batch
-    #SBATCH --clusters=mpp2
-    #SBATCH --cpus-per-task=1
-    #SBATCH -t 48:00:00
+```bash
+#!/bin/bash
+#SBATCH -J crub_p1_fold0
+#SBATCH --output=slurm_scripts/crub_p1_fold0.out
+#SBATCH --partition=mpp2_batch
+#SBATCH --clusters=mpp2
+#SBATCH --cpus-per-task=1
+#SBATCH -t 48:00:00
 
-    STARTTIME=$(date +"%s")
+STARTTIME=$(date +"%s")
 
-    angsd -b lrz_crub.bamlist -ref grasshopperRef.fasta -anc grasshopperRef.fasta -doSaf 1 -doCounts 1 -DoMaf 1 -doMajorMinor 1 -GL 1 -r chr1: -sites neutral_sites -minInd 12 -minMapQ 15 -only_proper_pairs 0 -minQ 20 -remove_bads 1 -uniqueOnly 1 -C 50 -baq 1 -setMinDepth 32 -fold 0 -SNP_pval 1 -out saf/crub_p1_fold0
+angsd -b $population.bamlist -ref grasshopperRef.fasta -anc grasshopperRef.fasta -doSaf 1 \
+-doCounts 1 -DoMaf 1 -doMajorMinor 1 -GL 1 -r chr1: -sites neutral_sites -minInd 12 \
+-minMapQ 15 -only_proper_pairs 0 -minQ 20 -remove_bads 1 -uniqueOnly 1 -C 50 -baq 1 \
+-setMinDepth 32 -fold 0 -SNP_pval 1 -out saf/${population}_p1_fold0
 
-    ENDTIME=$(date +%s)
-    TIMESPEND=$(($ENDTIME - $STARTTIME))
-    ((sec=TIMESPEND%60,TIMESPEND/=60, min=TIMESPEND%60, hrs=TIMESPEND/60))
-    timestamp=$(printf "%d:%02d:%02d" $hrs $min $sec)
-    echo "Took $timestamp hours:minutes:seconds to complete..."
+ENDTIME=$(date +%s)
+TIMESPEND=$(($ENDTIME - $STARTTIME))
+((sec=TIMESPEND%60,TIMESPEND/=60, min=TIMESPEND%60, hrs=TIMESPEND/60))
+timestamp=$(printf "%d:%02d:%02d" $hrs $min $sec)
+echo "Took $timestamp hours:minutes:seconds to complete..."
+```
 
 ###### SAF file command line options
 
-See [General ANGSD Options](..) at the beginning of the supplementary materials for options not mentioned below.
+See [General ANGSD Options](../#general-options) at the beginning of the supplementary materials for options not mentioned below.
 
 <table>
 <colgroup>
@@ -122,7 +127,13 @@ To build an SFS that can be bootstrapped, it is best to build an SFS for each ge
 
 Building an SFS with ANGSD uses a single command that runs in a few seconds:
 
-`realSFS saf/cppar_p1_fold0_ancmol.saf.idx saf/cpery_fold0_ancmol.saf.idx -r chr1:1-9898 -P 1 > sfs/per_gene_sfs/cppar_cpery/2dsfs_cppar_cpery_p1_fold0_chr1:1-9898.sfs`
+```bash
+realSFS \
+saf/${population1}_p1_fold0_ancmol.saf.idx \
+saf/${population2}_fold0_ancmol.saf.idx \
+-r chr1:1-9898 -P 1 > \
+sfs/per_gene_sfs/${population1}_${population2}/2dsfs_${population1}_${population2}_p1_fold0_chr1:1-9898.sfs
+```
 
 The realSFS command is built into ANGSD and takes two SAF files as input: the SAF of population 1 and the SAF of population 2, in order. The option `-r` restricts it to a single region of the genome, here, we restrict it to the first gene, making an SFS for this gene only. `-P` determines the number of threads to be used in the calculation. After the `>` we give the output sfs a filename and location.
 
@@ -134,7 +145,7 @@ Building the final SFS is simply a matter of summing all the gene SFS into a sin
 
 The dimensions are the number of individuals in each population, doubled, then plus one as explained in the introduction to SFS at the beginning of this readme (the 11 possible states in the 1D SFS).
 
-We have built an R script ([`build\_gl\_boots.R`](build_gl_boots.R)) that sums all gene SFS into a single SFS with the suffix 'genesum', which is then used as the dataset for demographic modeling with the SFS. It also builds 100 bootstraps by sampling gene SFS with replacement to build a bootstrapped SFS with the same number of genes as the true genesum SFS. It appends the appropriate header to all these files so that they are ready to be input into ∂a∂i.
+We have built an R script ([`build_gl_boots.R`](build_gl_boots.R)) that sums all gene SFS into a single SFS with the suffix 'genesum', which is then used as the dataset for demographic modeling with the SFS. It also builds 100 bootstraps by sampling gene SFS with replacement to build a bootstrapped SFS with the same number of genes as the true genesum SFS. It appends the appropriate header to all these files so that they are ready to be input into ∂a∂i.
 
 References
 ==========

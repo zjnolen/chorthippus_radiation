@@ -26,22 +26,24 @@ The Beagle file is then built by using ANGSD with the option `-doGlsf 2`. Beagle
 
 #### Beagle SLURM script
 
-    #!/bin/bash
-    #SBATCH -J beagle_p1e-2
-    #SBATCH --output=beagle_p1e-2.out
-    #SBATCH --cpus-per-task=6
-    #SBATCH --mem=150000mb
-    #SBATCH -t 168:00:00
+```bash
+#!/bin/bash
+#SBATCH -J beagle_p1e-2
+#SBATCH --output=beagle_p1e-2.out
+#SBATCH --cpus-per-task=6
+#SBATCH --mem=150000mb
+#SBATCH -t 168:00:00
 
-    STARTTIME=$(date +"%s")
+STARTTIME=$(date +"%s")
 
-    angsd -b ../lrz_all.bamlist -ref grasshopperRef.fasta -doMajorMinor 1 -GL 1 -doGlf 2 -SNP_pval 1e-2 -doMaf 1 -nThreads 2 -r chr1: -sites neutral_sites -baq 1 -remove_bads 1 -uniqueOnly 1 -C 50 -minMapQ 15 -only_proper_pairs 0 -minQ 20 -doCounts 1 -doPost 2 -doGeno 32 -minInd 67 -setMinDepth 168 -out ../outputs/p1e-2
+angsd -b ../lrz_all.bamlist -ref grasshopperRef.fasta -doMajorMinor 1 -GL 1 -doGlf 2 -SNP_pval 1e-2 -doMaf 1 -nThreads 2 -r chr1: -sites neutral_sites -baq 1 -remove_bads 1 -uniqueOnly 1 -C 50 -minMapQ 15 -only_proper_pairs 0 -minQ 20 -doCounts 1 -doPost 2 -doGeno 32 -minInd 67 -setMinDepth 168 -out ../outputs/p1e-2
 
-    ENDTIME=$(date +%s)
-    TIMESPEND=$(($ENDTIME - $STARTTIME))
-    ((sec=TIMESPEND%60,TIMESPEND/=60, min=TIMESPEND%60, hrs=TIMESPEND/60))
-    timestamp=$(printf "%d:%02d:%02d" $hrs $min $sec)
-    echo "Took $timestamp hours:minutes:seconds to complete..."
+ENDTIME=$(date +%s)
+TIMESPEND=$(($ENDTIME - $STARTTIME))
+((sec=TIMESPEND%60,TIMESPEND/=60, min=TIMESPEND%60, hrs=TIMESPEND/60))
+timestamp=$(printf "%d:%02d:%02d" $hrs $min $sec)
+echo "Took $timestamp hours:minutes:seconds to complete..."
+```
 
 It is important to allot enough memory for the process, here we reserve 150000 MB for a beagle file of all 84 *Chorthippus* and *Pseudochorthippus* individuals. Depending on the cluster you may need to move to a large memory partition or reserve more cores to reserve such a large amount of memory.
 
@@ -93,7 +95,9 @@ In order to obtain the highest likelihood clustering of individuals, it is impor
 
 For this, we have created a [bash file](replicate_NGSadmix_jobs.sh) that submits a SLURM job with a unique output for each replicate. This can be run from the command line with the following command:
 
-`bash replicate_NGSadmix_jobs.sh output_dir beagle_file K nreps`
+```bash
+bash replicate_NGSadmix_jobs.sh output_dir beagle_file K nreps
+```
 
 where:
 
@@ -106,7 +110,9 @@ where:
 
 For example, to run 50 replicates of a K9 analysis on the p1e-2.beagle.gz file, you would use:
 
-`bash replicate_NGSadmix_jobs.sh outputs p1e-2 9 50`
+```bash
+bash replicate_NGSadmix_jobs.sh outputs p1e-2 9 50
+```
 
 Plotting Results
 ----------------

@@ -1,6 +1,4 @@
 # ABBA-BABA Test
-Zachary J. Nolen
-
 
 The ABBA-BABA test is a tool for measuring introgression between related populations. This is done by comparing four populations with the relationship (((H1,H2),H3),H4), with H4 being the outgroup. It samples biallelic sites, determining one allele as ancestral (using the outgroup), notated as A, and the other as derived, noted as B.
 
@@ -31,7 +29,7 @@ Size file - This tells ANGSD how to group your populations, it should be a list 
 
 This task uses a lot of memory and should be submitted to a cluster where this is available. This header works well for this job type:
 
-```
+```bash
 #!/bin/bash
 #SBATCH -J pop_miss20
 #SBATCH --output=slurm_scripts/pop_miss20.out
@@ -41,12 +39,17 @@ This task uses a lot of memory and should be submitted to a cluster where this i
 #SBATCH --mem=200000mb
 #SBATCH -t 100:00:00
 ```
+
 You can change the job name to match your own, include any variables you will be changing in the job name and output for identification.
 
 Example:
 
-```
-angsd -b ../input_files/lrz_all.bamlist -ref ../input_files/grasshopperRef.fasta -doMajorMinor 1 -GL 1 -doMaf 1 -doCounts 1 -doAbbababa2 1 -sizeFile pop_all.size -useLast 1 -r chr1: -sites ../input_files/neutral_sites -baq 1 -remove_bads 1 -uniqueOnly 1 -C 50 -minMapQ 15 -only_proper_pairs 0 -minQ 20 -minInd 67 -setMinDepth 168 -SNP_pval 1e-6 -out output/pop_miss20
+```bash
+angsd -b ../input_files/lrz_all.bamlist -ref ../input_files/grasshopperRef.fasta -doMajorMinor 1 \
+-GL 1 -doMaf 1 -doCounts 1 -doAbbababa2 1 -sizeFile pop_all.size -useLast 1 \
+-r chr1: -sites ../input_files/neutral_sites -baq 1 -remove_bads 1 -uniqueOnly 1 \
+-C 50 -minMapQ 15 -only_proper_pairs 0 -minQ 20 -minInd 67 -setMinDepth 168 \
+-SNP_pval 1e-6 -out output/pop_miss20
 ```
 
 Many of these options are explained in [General ANGSD Options](https://github.com/zjnolen/chorthippus_radiation#general-options), any additional options or ones deviating from standard options are explained below:
@@ -64,7 +67,9 @@ Option							|Description
 
 The test will output three files, output_name.abbababa2, output_name.arg, and output_name.mafs.gz. We will only use the first. This contains the raw data that the D-statistic will be calculated from. This is done with an R script `estAvgError.R` provided by ANGSD. You can run this from the command line:
 
-`Rscript estAvgError.R angsdFile="[.abbababa2file]" out="[nameofoutput]" nameFile=popNames.name`
+```bash
+Rscript estAvgError.R angsdFile="[.abbababa2file]" out="[nameofoutput]" nameFile=popNames.name
+```
 
 Here, the .abbababa2 file will be one input (leave off the extension when defining it) along with a name for your output file, and a name file. The name file should be created before running, and is a list of the names of all your populations. It should be the same length as the size file. [Example](popNames.name).
 
@@ -73,7 +78,9 @@ This will produce two .txt files, one with the observed D-statistics and one wit
 #### Trimming the output
 The output contains all possible combinations of populations for the four population test. However, the ABBA-BABA test has the assumption that the reconstructed tree that will be tested matches the species tree. I've made an R script that trims out all topologies that don't match the species tree, and outputs the remainder as a csv. It can be run from bash with the following command:
 
-`Rscript trim_abba_baba.R [D-statistics txt file with extension]`
+```bash
+Rscript trim_abba_baba.R [D-statistics txt file with extension]
+```
 
 This has the population level tree topologies built in for *Chorthippus*. Check the R file to confirm the topologies are correct before running.
 
