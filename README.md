@@ -2,7 +2,7 @@
 
 Zachary J. Nolen, Burçin Yildirim, Iker Irisarri, Shanlin Liu, Clara Groot Crego, Daniel Buchvaldt Amby, Frieder Mayer, M. Thomas P. Gilbert, Ricardo J. Pereira
 
-Molecular Ecology
+Molecular Ecology, doi: [10.1111/mec.15695](https://doi.org/10.1111/mec.15695)
 
 This repository contains scripts used for the analyses presented in our manuscript listed above. Input data files can be found in the Data Dryad depository [doi:10.5061/dryad.pzgmsbchj](https://doi.org/10.5061/dryad.pzgmsbchj) and raw sequencing reads can be found in [NCBI Bioproject PRJNA665162](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA665162).
 
