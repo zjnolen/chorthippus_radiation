@@ -1,5 +1,3 @@
-
-
 # Historical isolation facilitates species radiation by sexual selection: Insights from *Chorthippus* grasshoppers
 
 Zachary J. Nolen, Burcin Yildirim, Iker Irisarri, Shanlin Liu, Clara Groot Crego, Daniel Buchvaldt Amby, Frieder Mayer, M. Thomas P. Gilbert, Ricardo J. Pereira
