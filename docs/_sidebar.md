@@ -8,6 +8,7 @@
 
     - [General ANGSD Settings](angsd.md)
     - [Dxy](dxy.md)
+    - [PCA](pca.md)
     - [NGSadmix](ngsadmix.md)
     - [Theta, Pi, and Tajima's D](theta_pi_tajimasD.md)
     - [Fst](fst.md)
