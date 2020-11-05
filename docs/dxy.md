@@ -4,3 +4,7 @@ Calculation of Dxy was done in R with the [`Dxy_popgenome.R`](https://github.com
 
 Below are the distribution of gene Dxy values for the populations in our study, as presented in Figure 4:
 ![](_images/dxy_alone.svg)
+
+-------------
+
+<div style="text-align: right">Page last updated on {docsify-updated}</div>

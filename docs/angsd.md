@@ -42,3 +42,7 @@ Option							|Description
 In most analyses, we used a `-SNP_pval` of 1e-2, which we determined by examining what value least distorted the SFS:
 
 ![](_images/cppar_sfs_pval_comp_countnormed.svg)
+
+-------------
+
+<div style="text-align: right">Page last updated on {docsify-updated}</div>
