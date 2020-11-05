@@ -36,3 +36,9 @@ Option							|Description
 `-setMinDepth 168`				|Removes sites below a minimum number of reads in the entire pool of individuals (coverage). Here, we set it to 2 times the number of individuals, as we want on average at least one read per allele, and there are two alleles per individual. This value will vary depending on the number of individuals in the analysis.
 `-SNP_pval 1e-2`				|Discards SNPs with a p-value of greater than 1e-2. This largely filters out fixed sites and low frequency SNPs. This setting is used only in some analyses that should not be performed when including fixed sites.
 `-out output/output_file_name`	|Sets a name and location for the analysis output files.
+
+## SNP_pval
+
+In most analyses, we used a `-SNP_pval` of 1e-2, which we determined by examining what value least distorted the SFS:
+
+![](_images/cppar_sfs_pval_comp_countnormed.svg)
