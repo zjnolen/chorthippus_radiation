@@ -10,6 +10,7 @@
     - [Dxy](dxy.md)
     - [NGSadmix](ngsadmix.md)
     - [Theta, Pi, and Tajima's D](theta_pi_tajimasD.md)
+    - [Fst](fst.md)
     - [ABBA-BABA](abba_baba.md)
     - [SFS](sfs.md)
     - [δaδi](dadi.md)
