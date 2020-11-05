@@ -6,8 +6,7 @@ Zachary J. Nolen, Burcin Yildirim, Iker Irisarri, Shanlin Liu, Clara Groot Crego
   <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA665162"><img src="https://img.shields.io/badge/NCBI%20BioProject-PRJNA665162-%23008d3c"></a>
 	<a href="https://doi.org/10.5061/dryad.pzgmsbchj"><img src="https://img.shields.io/badge/Dryad-10.5061/dryad.pzgmsbchj-%23008d3c"></a>
 	<a href="https://github.com/zjnolen/chorthippus_radiation"><img src="https://img.shields.io/badge/GitHub-zjnolen/chorthippus__radiation-%23008d3c"></a>
-	<a href="https://zjnolen.github.io/chorthippus_radiation/"><img src="https://img.shields.io/badge/Documentation-Chorthippus%20Radiation-%23008d3c"></a>
 
-![chorthippus_distribution](docs/_images/Fig1_sampling.png)
+![chorthippus_distribution](_images/Fig1_sampling.png)
 
-This repository hosts the scripts of the manuscript above. The most up to date documentation is available by clicking the documentation badge above. For questions relating to the methods in this manuscript or the files in the repository please contact Zachary J. Nolen or Ricardo J. Pereira. Feel free to post questions in the issues section of the repository and we can make updates in accordance with the needs of those using it. Thank you for your interest in our work!
+This page serves as a central documentation for the manuscript listed above. For questions relating to the methods in this manuscript or the files in the repository please contact Zachary J. Nolen or Ricardo J. Pereira. Feel free to post questions in the issues section of the repository and we can make updates in accordance with the needs of those using it. Thank you for your interest in our work!
